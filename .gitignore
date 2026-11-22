@@ -1,0 +1,8 @@
+yolo11l.pt
+*.parts/
+*.tmp
+results.jsonl
+__pycache__/
+venv/
+parts_backup.zip
+parts_b_backup.zip
