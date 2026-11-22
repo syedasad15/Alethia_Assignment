@@ -129,7 +129,7 @@ def run_file(model, fp, a, dev, part):
 def worker(files, dev, a):
     from ultralytics import YOLO
     logging.getLogger("ultralytics").setLevel(logging.ERROR)
-    model = YOLO("yolo11l.pt")
+    model = YOLO(os.path.join(os.path.dirname(os.path.abspath(__file__)), "yolo11l.pt"))
     parts = a.output + ".parts"
     for fp in files:
         name = os.path.basename(fp)
@@ -146,7 +146,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--input", required=True)
     ap.add_argument("--output", required=True)
-    ap.add_argument("--sps", type=float, default=4, help="sampled frames per second of video")
+    ap.add_argument("--sps", type=float, default=6, help="sampled frames per second of video")
     ap.add_argument("--batch", type=int, default=32)
     ap.add_argument("--gpus", type=int, default=0)
     ap.add_argument("--max-videos", type=int, default=0, help="per file, for testing")
